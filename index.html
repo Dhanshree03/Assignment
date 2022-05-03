@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <form action=" " method="post">
+
+        <input type="number"  id="mon" placeholder="Enter Month"  required/>
+        <button type="button" onclick="myFunction()">Submit</button>
+
+        <p id="demo"></p>
+
+       <input type="number"  id="day" placeholder="Enter Day"  required/>
+        <button type="button" onclick="myFunction1()">Submit</button>
+
+        <p id="demo1"></p>
+
+        <input type="date" data-date-format="yyyy-mm-dd" id="dt">
+        <button type="button"  onclick="checkDate()">Submit</button>
+
+        <p id="demo2"></p>
+
+      </form> 
+      <script>
+        function myFunction() {
+          let x = document.getElementById("mon").value;
+          let text;
+          if (x>12 || x<=0 || x==" ")
+           {
+            text = "Invalid Month";
+          } 
+          else 
+          {
+            text = "You Entered Correct Month";
+          }
+          document.getElementById("demo").innerHTML = text;
+        }
+
+
+        function myFunction1() {
+          let x = document.getElementById("day").value;
+          let text;
+          if (x>=1 && x<=31)
+           {
+            text = "Valid Day";
+          } 
+          else 
+          {
+            text = "Invalid Day";
+          }
+          document.getElementById("demo1").innerHTML = text;
+        }
+
+
+        var down = document.getElementById('demo2');
+          
+        function checkDate() {
+            var date = 
+                document.getElementById('dt').value;
+              
+            var inpDate = new Date(date);
+            var currDate = new Date();
+              
+            if(inpDate.setHours(0, 0, 0, 0) == 
+                    currDate.setHours(0, 0, 0, 0) || inpDate > currDate)
+            {
+                down.innerHTML = 
+                    "Valid Date";
+            } 
+            else {
+                down.innerHTML = "You cant enter past date";
+            }         
+        }
+
+        </script>
+</body>
+</html>
+    
